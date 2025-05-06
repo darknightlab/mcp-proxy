@@ -1,0 +1,9 @@
+services:
+  mcp-proxy:
+    image: darknightlab/mcp-proxy:main
+    container_name: mcp-proxy
+    network_mode: host
+    restart: unless-stopped
+    ports:
+      - 8096:8096
+    command: "--pass-environment --sse-port=8096 --sse-host 0.0.0.0 uvx mcp-server-fetch"
