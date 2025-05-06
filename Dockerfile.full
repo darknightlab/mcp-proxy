@@ -13,7 +13,7 @@ ENV PATH="/root/.local/bin:$PATH"
 COPY entrypoint.sh ./
 RUN chmod +x entrypoint.sh
 
-RUN npm install @playwright/test && npx playwright install --with-deps && \
+RUN npm install @playwright/test && npx playwright install chromium --with-deps && \
     apt-get update && apt-get install -y --no-install-recommends \
     wget git net-tools iputils-ping iproute2 dnsutils unzip zip \
     ca-certificates lsb-release gnupg lsof telnet && \
