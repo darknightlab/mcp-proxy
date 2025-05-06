@@ -6,7 +6,7 @@ RUN uv tool install git+https://github.com/sparfenyuk/mcp-proxy
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl && \
     curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
-    apt-get install -y nodejs npm && rm -rf /var/lib/apt/lists/*
+    apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
 ENV PATH="/root/.local/bin:$PATH"
 
