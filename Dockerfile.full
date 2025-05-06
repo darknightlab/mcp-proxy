@@ -20,4 +20,4 @@ RUN npm install @playwright/test && npx playwright install --with-deps && \
     rm -rf /var/lib/apt/lists/* && \
     curl nxtrace.org/nt |bash
 
-ENTRYPOINT [ entrypoint.sh ]
+ENTRYPOINT [ "./entrypoint.sh" ]
