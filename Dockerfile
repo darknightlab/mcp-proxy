@@ -1,10 +1,12 @@
-FROM ghcr.io/sparfenyuk/mcp-proxy:latest
+From ghcr.io/astral-sh/uv:0.7.2-python3.12-bookworm
 
-RUN apk add --no-cache nodejs npm
+WORKDIR /app
 
-RUN python3 -m ensurepip && pip install --no-cache-dir uv
+RUN uv tool install git+https://github.com/sparfenyuk/mcp-proxy
 
-ENV PATH="/usr/local/bin:$PATH" \
-    UV_PYTHON_PREFERENCE=only-system
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm && rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT [ "mcp-proxy" ]
+COPY entrypoint.sh ./
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh" ]
