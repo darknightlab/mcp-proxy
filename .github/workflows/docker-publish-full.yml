@@ -83,8 +83,8 @@ jobs:
           file: ./Dockerfile.full
           platforms: linux/amd64 #,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: full
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: full
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
