@@ -16,12 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     mkdir -p /run/sshd && \
     curl nxtrace.org/nt |bash
 
-RUN useradd -ms /bin/bash user \
-    && echo "user:user" | chpasswd \
-    && usermod -aG sudo user \
-    && mkdir -p /home/user/.vnc \
-    && chown -R user:user /home/user
-
 ENV PATH="/root/.local/bin:$PATH" \
     RESOLUTION=1280x800x24 \
     DISPLAY=:0
