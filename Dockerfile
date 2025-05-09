@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 ENV PATH="/root/.local/bin:$PATH" \
-    RESOLUTION=1280x800x24
+    RESOLUTION=1280x800x24 \
+    DISPLAY=:0
 
 COPY entrypoint.sh ./
 RUN chmod +x entrypoint.sh
