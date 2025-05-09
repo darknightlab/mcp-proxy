@@ -10,9 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl && \
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget git net-tools iputils-ping iproute2 dnsutils unzip zip \
-    x11vnc xvfb fluxbox supervisor openssh-server \
+    x11vnc xvfb fluxbox supervisor openssh-server novnc websockify \
     ca-certificates telnet && \
     rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /run/sshd && \
     curl nxtrace.org/nt |bash
 
 
